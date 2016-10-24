@@ -11,19 +11,18 @@
 		<div id = "time">Tid kvar</div>
 		
 		<div id = "battleContainer">
-			<div id = "team1" class = "contestant" style = "left:-880px;top:182px;">
+			<div id = "team1" class = "contestant">
 				<img src = "data/imgs/ljudoljud.jpg" class = "circlerounded superbig contestantImage" alt = "Matz">
 				<div class = "contestantName">Ljud o Ljus</div>
 			</div>
 			<div id = "vsText">
 				vs
 			</div>
-			<div id = "team2" class = "contestant" style = "left:2000px;top:182px;">
+			<div id = "team2" class = "contestant">
 				<img src = "data/imgs/mabra.jpg" class = "circlerounded superbig contestantImage" alt = "Anton">
 				<div class = "contestantName">M&aring;Bra</div>
 			</div>
 		</div>
-		
 		<script type = "text/javascript">
 			var width, height, wratio, hratio;
 			initScreenDim();
@@ -42,16 +41,6 @@
 			moveElementWrapper('team2', 3000, 600, 0);
 			moveElementWrapperCenter('vsText', 960, -10, 0);
 			
-			function setup(){
-				moveElementWrapperCenter("vsText", 960, 600, getdelaytime(800));
-				window.setTimeout("moveElementWrapperCenter('vsText', 960, 500, 400);", getdelaytime(800));
-				window.setTimeout("moveElementWrapperCenter('vsText', 960, 600, 400);", getdelaytime(1200));
-				window.setTimeout("moveElementWrapperCenter('vsText', 960, 500, 400);", getdelaytime(1600));
-				window.setTimeout("moveElementWrapperCenter('vsText', 960, 600, 400);", getdelaytime(2000));
-				window.setTimeout("moveElementWrapperCenter('team1', 400, 600, 1500);", getdelaytime(2700));
-				window.setTimeout("moveElementWrapperCenter('team2', 1520, 600, 1500);", getdelaytime(2700));
-				window.setTimeout("moveElementWrapperCenter('time', 960, 150, 1500);", getdelaytime(4200));
-			}
 			
 			function startCountdown(id, endtime){
 				var container = document.getElementById(id);
