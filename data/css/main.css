@@ -168,15 +168,15 @@ div.contestantName{
 			margin: auto;
 		}
 		#team1 {
-			top: 180px;
+			top: 30vh;
 			z-index: 5;
 		}
 		#team2 {
-			top: 230px;
+			top: 35vh;
 			z-index: 1;
 		}
 		#vsText {
-			top: 240px;
+			top: 37vh;
 			left: 50%;
 			transform: translateX(-50%);
 			z-index: 10;
