@@ -13,26 +13,38 @@ body{
 }
 
 #team1 {
-	left:200px;
+	left:10%;
 	top:182px;
 	animation: teamOneMove 0.8s 1;
+	width: 30%;
+}
+
+#team1 img {
+	width: 100%;
+	height: auto;
 }
 
 #team2 {
-	right:200px;
+	right:10%;
 	top:182px;
 	animation: hideVisability 0.9s 1, teamTwoMove 0.3s 0.8s 1;
+	width: 30%;
+}
+
+#team2 img {
+	width: 100%;
+	height: auto;
 }
 
 #vsText{
-	top: 300px;
-	left: 42.5%;
+	position: absolute;
+	top: 320px;
+	left: 50%;
+	transform: translateX(-50%);
 	animation: vsTextMove 2s 1;
-	position:fixed;
-	display:inline-block;
-	vertical-align:240px;
 	font-size:60px;
-	color:#fff;
+	color: #fff;
+	text-align: center;
 	
 	padding-left:60px;
 	padding-right:60px;
@@ -43,10 +55,11 @@ body{
 	top: 30px;
 	
 	text-align:center;
-	font-size:35px;
+	font-size:1.8rem;
 	color:#fff;
 	
 	width:30%;
+	min-width: 280px;
 	/*margin-left:35%;
 	margin-top:40px;
 	margin-bottom:80px;*/
@@ -59,12 +72,6 @@ body{
 	animation: timeMove 2.2s 1;
 }
 
-
-
-img.superbig{
-	height:300px;
-	width:300px;
-}
 div.contestant{
 	position:fixed;
 	display:inline-block;
@@ -77,10 +84,11 @@ img.contestantImage{
 	margin-bottom:20px;
 }
 div.contestantName{
-	margin-left:20%;
-	width:60%;
+	
+	width:70%;
+	margin: auto;
 	text-align:center;
-	font-size:30px;
+	font-size:1.8rem;
 	color:#fff;
 	
 	padding:9px 0px 12px 0px;
@@ -124,7 +132,7 @@ div.contestantName{
 
 @keyframes teamTwoMove {
     from {right: -880px;}
-    to {right: 200px;}
+    to {right: 10%;}
 }
 
 @keyframes vsTextMove {
@@ -149,3 +157,35 @@ div.contestantName{
     99% {opacity: 0}
     100% {opacity: 1}
 }
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (-o-min-device-pixel-ratio: 3/2),
+	only screen and (min--moz-device-pixel-ratio: 1.5),
+	only screen and (min-device-pixel-ratio: 1.5) {
+		#team1, #team2 {
+			width: 42%;
+			margin: auto;
+		}
+		#team1 {
+			top: 180px;
+			z-index: 5;
+		}
+		#team2 {
+			top: 230px;
+			z-index: 1;
+		}
+		#vsText {
+			top: 250px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 10;
+			color:crimson;
+			text-shadow: 0 0 5px black;
+		}
+		div.contestantName {
+			font-size: 1.2rem;
+			width: 90%;
+		}
+	}
+

@@ -7,40 +7,24 @@
 		<link rel = "stylesheet" href = "data/css/main.css" type = "text/css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	</head>
-	<body id = "docBody" onload = "setup();">
+	<body id = "docBody">
 		<div id = "time">Tid kvar</div>
 		
 		<div id = "battleContainer">
 			<div id = "team1" class = "contestant">
-				<img src = "data/imgs/ljudoljud.jpg" class = "circlerounded superbig contestantImage" alt = "Matz">
+				<img src = "data/imgs/ljudoljud.jpg" class = "circlerounded contestantImage" alt = "Matz">
 				<div class = "contestantName">Ljud o Ljus</div>
 			</div>
 			<div id = "vsText">
 				vs
 			</div>
 			<div id = "team2" class = "contestant">
-				<img src = "data/imgs/mabra.jpg" class = "circlerounded superbig contestantImage" alt = "Anton">
+				<img src = "data/imgs/mabra.jpg" class = "circlerounded contestantImage" alt = "Anton">
 				<div class = "contestantName">M&aring;Bra</div>
 			</div>
 		</div>
 		<script type = "text/javascript">
-			var width, height, wratio, hratio;
-			initScreenDim();
-			
-			function initScreenDim(){
-				width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-				height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-				wratio = width/1920;
-				hratio = height/1200;
-			}
-			
-			//document.body.style.backgroundPosition = '0px '+((height*(1-wratio))/2)+'px';
-					
 			startCountdown("time", new Date(2016, 10, 20, 14, 0, 0, 0).getTime());		//UTC time
-			moveElementWrapper('team1', -880, 600, 0);
-			moveElementWrapper('team2', 3000, 600, 0);
-			moveElementWrapperCenter('vsText', 960, -10, 0);
-			
 			
 			function startCountdown(id, endtime){
 				var container = document.getElementById(id);
@@ -61,62 +45,6 @@
 					container.innerHTML = (dPos?days+" dagar ":"")+(hPos || dPos?(hours<10?"0":"")+hours+":":"")+(mPos || hPos || dPos?(minutes<10?"0":"")+minutes+":":"")+(sPos || mPos || hPos || dPos?(seconds<10?"0":"")+seconds:"");
 					window.setTimeout("startCountdown('"+id+"', "+endtime+");", 200);
 				}
-			}
-			
-			function moveElementWrapper(id, x, y, time){
-				moveElement(id, getx(x), gety(y), time);
-			}
-			
-			function moveElementWrapperCenter(id, x, y, time){
-				translatedx = getx(x) - document.getElementById(id).offsetWidth/2;
-				translatedy = gety(y) - document.getElementById(id).offsetHeight/2;
-				moveElement(id, translatedx, translatedy, time);
-			}
-			
-			function moveElement(id, x, y, time, extraX, extraY){
-				if(typeof extraX == "undefined")extraX = 0;
-				if(typeof extraY == "undefined")extraY = 0;
-				var diff = 20;
-				
-				var element = document.getElementById(id);
-				var bcr = element.getBoundingClientRect();
-				var dx = x-bcr.left;
-				var dy = y-bcr.top;
-				
-				var xNew = dx/(time/diff) + extraX;
-				var yNew = dy/(time/diff) + extraY;
-				
-				element.style.position = "fixed";
-				element.style.left = parseInt(bcr.left+xNew)+"px";
-				element.style.top = parseInt(bcr.top+yNew)+"px";
-				
-				extraX = xNew%1;
-				extraY = yNew%1;
-				if(xNew != x || yNew != y){
-					window.setTimeout("moveElement('"+id+"', "+x+", "+y+", "+(time-diff)+", "+extraX+", "+extraY+");", diff);
-				}
-			}
-			
-			function getdelaytime(time){
-				return getreqparam('animation') === 'nope'?0:time;
-			}
-			
-			function getreqparam(key){
-				var result;
-				location.search.substr(1).split("&").forEach(function (item) {
-					var tmp = item.split("=");
-					if (tmp[0] === key) result = decodeURIComponent(tmp[1]);
-				});
-				return result;
-			}
-			
-			function getx(x){
-				console.log(wratio);
-				return wratio*x;
-			}
-			
-			function gety(y){
-				return hratio*y;
 			}
 		</script>
 	</body>
