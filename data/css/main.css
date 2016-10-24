@@ -42,7 +42,7 @@ body{
 	left: 50%;
 	transform: translateX(-50%);
 	animation: vsTextMove 2s 1;
-	font-size:60px;
+	font-size:5.2rem;
 	color: #fff;
 	text-align: center;
 	
@@ -176,7 +176,7 @@ div.contestantName{
 			z-index: 1;
 		}
 		#vsText {
-			top: 250px;
+			top: 240px;
 			left: 50%;
 			transform: translateX(-50%);
 			z-index: 10;
