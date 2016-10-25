@@ -96,6 +96,7 @@ div.contestantName{
 	background-image:url('../imgs/namesign.png');
 	background-size:100% 98%;
 	background-repeat:no-repeat;
+	animation: tipSign 2.8s 1;
 }
 
 
@@ -156,6 +157,45 @@ div.contestantName{
     0% {opacity: 0}
     99% {opacity: 0}
     100% {opacity: 1}
+}
+
+@keyframes tipSign {
+	0% {
+		transform: rotateX(90deg);
+		transform-origin: top;
+	}
+	55% {
+		transform: rotateX(90deg);
+		transform-origin: top;
+	}
+	60% {
+		transform: rotateX(60deg);
+		transform-origin: top;
+		perspective: 20px;
+		perspective-origin: top;
+	}
+	70% {
+		transform: rotateX(-70deg);
+		transform-origin: top;
+		perspective: 20px;
+		perspective-origin: bottom;
+	}
+	80% {
+		transform: rotateX(40deg);
+		transform-origin: top;
+		perspective: 20px;
+		perspective-origin: top;
+	}
+	90% {
+		transform: rotateX(-10deg);
+		transform-origin: top;
+		perspective: 20px;
+		perspective-origin: bottom;
+	}
+	100% {
+		transform: rotateX(0deg);
+		transform-origin: top;
+	}
 }
 
 @media
